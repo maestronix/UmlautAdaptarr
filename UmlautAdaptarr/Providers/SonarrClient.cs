@@ -78,8 +78,8 @@ public class SonarrClient : ArrClientBase
                     }
                     else
                     {
-                        (germanTitle, aliases) =
-                            await _titleService.FetchGermanTitleAndAliasesByExternalIdAsync(_mediaType, tvdbId);
+                        germanTitle = null;
+                        aliases = null;
                     }
                     
                     var searchItem = new SearchItem
@@ -130,9 +130,8 @@ public class SonarrClient : ArrClientBase
                     return null;
                 }
 
-                var (germanTitle, aliases) =
-                    await _titleService.FetchGermanTitleAndAliasesByExternalIdAsync(_mediaType, tvdbId);
-
+                var germanTitle = (string?)null;
+                string[]? aliases = null;
                 var searchItem = new SearchItem
                 (
                     (int)show.id,
